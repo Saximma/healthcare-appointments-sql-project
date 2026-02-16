@@ -38,6 +38,7 @@ SECTION 2: EXPLORATORY ANALYSIS
 
 BUSINESS QUESTIONS AND INSIGHTS
 1. Which doctor handles the most appointments?
+-SQL query:
   SELECT doctor_id, COUNT(*) AS total_appointments
   FROM appointments
   GROUP BY doctor_id
@@ -47,6 +48,7 @@ BUSINESS QUESTIONS AND INSIGHTS
 Doctor with id D005 has the highest workload, suggesting possible scheduling imbalance.
 
 2. What is the overall no-show rate?
+-SQL query:
   SELECT 
     ROUND(SUM(CASE WHEN status = 'No-show' THEN 1 ELSE 0 END) * 100.0 
     / COUNT(*), 2) AS no_show_rate
@@ -55,6 +57,7 @@ Doctor with id D005 has the highest workload, suggesting possible scheduling imb
 - Insight: Potential revenue loss, Reminder systems may reduce revenue loss
 
 3. Which month has the highest appointments?
+-SQL query:
   SELECT 
       DATE_FORMAT(appointment_date, '%Y-%m') AS month,
       COUNT(*) AS total_appointments
