@@ -47,16 +47,12 @@ Insight:
 Doctor with id D005 has the highest workload, suggesting possible scheduling imbalance.
 
 2. What is the overall no-show rate?
-  SELECT doctor_id,
-      SUM(CASE
-      WHEN status = 'No-show' THEN 1 ELSE 0 
-      END) AS no_show_count
-  FROM appointments
-  GROUP BY doctor_id
-  ORDER BY no_show_count DESC
-  LIMIT 1;
+  SELECT 
+    ROUND(SUM(CASE WHEN status = 'No-show' THEN 1 ELSE 0 END) * 100.0 
+    / COUNT(*), 2) AS no_show_rate
+  FROM appointments;
 Insight:
-The no-show rate is 60%, indicating potential revenue loss.
+The no-show rate is 26%, indicating potential revenue loss.
 
 3. Which month has the highest appointments?
   SELECT 
