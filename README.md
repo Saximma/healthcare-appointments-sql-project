@@ -36,7 +36,37 @@ SECTION 2: EXPLORATORY ANALYSIS
 - Analyzed ranking of  doctors by total appointments
 
 
+BUSINESS QUESTIONS AND INSIGHTS
+1. Which doctor handles the most appointments?
+  SELECT doctor_id, COUNT(*) AS total_appointments
+  FROM appointments
+  GROUP BY doctor_id
+  ORDER BY total_appointments DESC
+  LIMIT 1;
+Insight:
+Doctor with id D005 has the highest workload, suggesting possible scheduling imbalance.
 
+2. What is the overall no-show rate?
+  SELECT doctor_id,
+      SUM(CASE
+      WHEN status = 'No-show' THEN 1 ELSE 0 
+      END) AS no_show_count
+  FROM appointments
+  GROUP BY doctor_id
+  ORDER BY no_show_count DESC
+  LIMIT 1;
+Insight:
+The no-show rate is 60%, indicating potential revenue loss.
+
+3. Which month has the highest appointments?
+  SELECT 
+      DATE_FORMAT(appointment_date, '%Y-%m') AS month,
+      COUNT(*) AS total_appointments
+  FROM appointments
+  GROUP BY month
+  ORDER BY month;
+Insight:
+The first month recorded the highest patient volume.
 
 
 
