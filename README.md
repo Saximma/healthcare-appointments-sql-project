@@ -43,7 +43,7 @@ BUSINESS QUESTIONS AND INSIGHTS
   GROUP BY doctor_id
   ORDER BY total_appointments DESC
   LIMIT 1;
-Insight:
+- Insight:
 Doctor with id D005 has the highest workload, suggesting possible scheduling imbalance.
 
 2. What is the overall no-show rate?
@@ -51,8 +51,8 @@ Doctor with id D005 has the highest workload, suggesting possible scheduling imb
     ROUND(SUM(CASE WHEN status = 'No-show' THEN 1 ELSE 0 END) * 100.0 
     / COUNT(*), 2) AS no_show_rate
   FROM appointments;
-Insight:
-The no-show rate is 26%, indicating potential revenue loss, Reminder systems may reduce revenue loss
+- Result: The no-show rate is 26%
+- Insight: Potential revenue loss, Reminder systems may reduce revenue loss
 
 3. Which month has the highest appointments?
   SELECT 
@@ -61,8 +61,9 @@ The no-show rate is 26%, indicating potential revenue loss, Reminder systems may
   FROM appointments
   GROUP BY month
   ORDER BY month;
-Insight:
-The first month recorded the highest patient volume.
+- Result: The first month recorded the highest patient volume.
+- Insight: More staff may be needed during that period.
+
 
 
 
