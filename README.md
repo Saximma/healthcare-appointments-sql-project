@@ -10,12 +10,12 @@ The dataset contains the following columns:  appointment_id, patient_id, doctor_
 
 SECTION 1: DATA CLEANING
 
--- Trimmed spaces from text columns
--- Standardized status
--- checked for duplocates
--- checked null values
--- Removed rows with critical NULLs
--- Joined date and time column tables together
+- Trimmed spaces from text columns
+- Standardized status
+- Checked for duplocates
+- Checked null values
+- Removed rows with critical NULLs
+- Joined date and time column tables together
 
 SECTION 2: EXPLORATORY ANALYSIS
 - Counted total rows and columns
