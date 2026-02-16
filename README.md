@@ -52,7 +52,7 @@ Doctor with id D005 has the highest workload, suggesting possible scheduling imb
     / COUNT(*), 2) AS no_show_rate
   FROM appointments;
 Insight:
-The no-show rate is 26%, indicating potential revenue loss.
+The no-show rate is 26%, indicating potential revenue loss, Reminder systems may reduce revenue loss
 
 3. Which month has the highest appointments?
   SELECT 
